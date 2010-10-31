@@ -15,26 +15,17 @@ WHITESPACE		[ \r\n\t\f]
 
 %%
 
-{DIGIT}*								return DUTOK_UINT;
+[+-]									return DUTOK_OPER_SIGNADD;
 
-<										return DUTOKGE_LT;
-<=										return DUTOKGE_LE;
-<>										return DUTOKGE_NE;
->=										return DUTOKGE_GE;
->										return DUTOKGE_GT;
+\*										return DUTOK_OPER_MUL;
+\/										return DUTOK_OPER_MUL;
 
-+										return DUTOKGE_PLUS;
--										return DUTOKGE_MINUS;
+[Dd][Ii][Vv]							return DUTOK_OPER_MUL;
+[Mm][Oo][Dd]							return DUTOK_OPER_MUL;
+[Aa][Nn][Dd]							return DUTOK_OPER_MUL;
 
-\*										return DUTOKGE_ASTERISK;
-/										return DUTOKGE_SOLIDUS;
-
-[Dd][Ii][Vv]							return DUTOKGE_DIV;
-[Mm][Oo][Dd]							return DUTOKGE_MOD;
-[Aa][Nn][Dd]							return DUTOKGE_AND;
-
-[Tt][Oo]								return DUTOKGE_TO;
-[Dd][Oo][Ww][Nn][Tt][Oo]				return DUTOKGE_DOWNTO;
+[Tt][Oo]								return DUTOK_FOR_DIRECTION;
+[Dd][Oo][Ww][Nn][Tt][Oo]				return DUTOK_FOR_DIRECTION;
 
 [Pp][Rr][Oo][Gg][Rr][Aa][Mm]			return DUTOK_PROGRAM;
 [Ll][Aa][Bb][Ee][Ll]					return DUTOK_LABEL;
@@ -46,7 +37,7 @@ WHITESPACE		[ \r\n\t\f]
 [Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee]	return DUTOK_PROCEDURE;
 [Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]		return DUTOK_FUNCTION;
 [Aa][Rr]{2}[Aa][Yy]						return DUTOK_ARRAY;
-[Oo][Ff]								return DUTOK_OD;
+[Oo][Ff]								return DUTOK_OF;
 [Gg][Oo][Tt][Oo]						return DUTOK_GOTO;
 [Ii][Ff]								return DUTOK_IF;
 [Tt][Hh][Ee][Nn]						return DUTOK_THEN;
@@ -59,8 +50,24 @@ WHITESPACE		[ \r\n\t\f]
 [Oo][Rr]								return DUTOK_OR;
 [Nn][Oo][Tt]							return DUTOK_NOT;
 
-[a-zA-Z][a-zA-Z0-9]*						return DUTOK_IDENTIFIER;
+[a-zA-Z][a-zA-Z0-9]*					return DUTOK_IDENTIFIER;
+{DIGIT}*								return DUTOK_UINT;
+[0-9]+(\.[0-9]+)?([Ee][+-]?[0-9]+)?		return DUTOK_REAL;
 
+;										return DUTOK_SEMICOLON;
+\.										return DUTOK_DOT;
+,										return DUTOK_COMMA;
+=										return DUTOK_EQ;
+:										return DUTOK_COLON;
+\(										return DUTOK_LPAR;
+\)										return DUTOK_RPAR;
+\.\.									return DUTOK_DOTDOT;
+\[										return DUTOK_LSBRA;
+\]										return DUTOK_RSBRA;
+:=										return DUTOK_ASSIGN;
+
+\<[>=]									return DUTOK_OPER_REL;
+\>[=]?									return DUTOK_OPER_REL;
 
 {WHITESPACE}+							/* go out with whitespaces */
 
