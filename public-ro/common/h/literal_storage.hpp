@@ -32,6 +32,7 @@ namespace mlaskal {
 		typedef const T & const_reference;		///< container requirement
 		typedef typename std::list<T>::size_type size_type;		///< container requirement
 		typedef typename std::list<T>::const_iterator const_iterator;		///< container requirement
+		typedef const T * const_pointer;
 
 		size_type size() const { return lit_.size(); }		///< container requirement
 		const_iterator begin() const { return lit_.begin(); }		///< container requirement
@@ -50,7 +51,7 @@ namespace mlaskal {
 
 			returns an iterator 
 		**/
-		const_iterator add(const T &sval)
+		const_pointer add(const T &sval)
 		{
 			const_iterator tmp=std::find(lit_.begin(), lit_.end(), sval);
 
@@ -60,7 +61,7 @@ namespace mlaskal {
 				tmp = --lit_.end();
 			}
 
-			return tmp;
+			return &*tmp;
 		}
 
 		// container
