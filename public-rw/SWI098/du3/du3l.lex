@@ -4,6 +4,8 @@
 	#include "du3.h"
 	#include "du3tok.h"
 	#include "du3g.hpp"
+	#include <deque>
+	#include <string>
 	
 	/* portability stuff */
 	#if defined _MSC_VER	    /* M$, VS2003 does not recognize long long */
@@ -17,7 +19,6 @@
 	#endif
 	
 	using namespace std;
-	using namespace mlc;	using namespace std;
 	using namespace mlc;
 
 	string strval = "";
@@ -144,10 +145,10 @@ double parseReal(char * yytext)
 		error(DUERR_REALOUTRANGE, line, yytext);
 	}
 
-	if (ret == 0.0)
+	/*if (ret == 0.0)
 	{
 		error(DUERR_BADREAL, line, yytext);
-	}
+	}*/
 
 	return ret;
 }

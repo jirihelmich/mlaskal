@@ -96,7 +96,7 @@
       <FileType>Document</FileType>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Bison</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Bison</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">bison.exe --report=all -d -o du3g.cpp "%(FullPath)"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">exe --report=all -d -o du3g.cpp "%(FullPath)"
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">bison.exe --report=all -d -o du3g.cpp "%(FullPath)"
 </Command>
@@ -107,7 +107,7 @@
       <FileType>Document</FileType>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Flex</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Flex</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">flex.exe -Cf -b -p -p -odu3l.cpp "%(FullPath)"
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">exe -Cf -b -p -p -odu3l.cpp "%(FullPath)"
 </Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">flex.exe -Cf -b -p -p -odu3l.cpp "%(FullPath)"
 </Command>
