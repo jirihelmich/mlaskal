@@ -92,20 +92,20 @@ label_block:	/* empty */
 		;
 
 label_name_block:	DUTOK_UINT
-					| DUTOK_UINT DUTOK_COMMA label_name_block
+					| label_name_block DUTOK_COMMA DUTOK_UINT
 		;
-
+/*
 const_def_block:	/* empty */
 					| DUTOK_CONST const_set_block
 		;
 
-const_set_blcok:	DUTOK_IDENTIFIER DUTOK_EQ constant DUTOK_SEMICOLON
-					| DUTOK_IDENTIFIER DUTOK_EQ constant DUTOK_SEMICOLON const_set_block
+const_set_block:	DUTOK_IDENTIFIER DUTOK_EQ constant DUTOK_SEMICOLON
+					| const_set_block DUTOK_IDENTIFIER DUTOK_EQ constant DUTOK_SEMICOLON
 		;
 
 constant:		u_constant
 				| DUTOK_OPER_SIGNADD DUTOK_UINT
-				| DUTOK_OPER_SIGNADD REAL
+				| DUTOK_OPER_SIGNADD DUTOK_REAL
 		;
 				
 type_def_block: /*empty*/
@@ -113,7 +113,7 @@ type_def_block: /*empty*/
 		;
 
 type_set_block: DUTOK_IDENTIFIER DUTOK_EQ type DUTOK_SEMICOLON
-				| DUTOK_IDENTIFIER DUTOK_EQ type DUTOK_SEMICOLON type_set_block
+				| type_set_block DUTOK_IDENTIFIER DUTOK_EQ type DUTOK_SEMICOLON
 		;
 
 var_def_block:	/*empty*/
@@ -121,7 +121,7 @@ var_def_block:	/*empty*/
 		;
 
 var_set_block:	ident_list DUTOK_COLON type DUTOK_SEMICOLON
-				| ident_list DUTOK_COLON type DUTOK_SEMICOLON var_set_block
+				| var_set_block ident_list DUTOK_COLON type DUTOK_SEMICOLON
 		;
 
 ident_list:	DUTOK_IDENTIFIER
@@ -132,7 +132,7 @@ procfunc_def_block:	/*empty*/
 					| DUTOK_IDENTIFIER procfunc_header DUTOK_SEMICOLON block DUTOK_SEMICOLON procfunc_def_block
 		;
 
-begin_cmd_end_block:	DUTOK_BEGIN cmd DUTOK END
+begin_cmd_end_block:	DUTOK_BEGIN cmd DUTOK_END
 		;
 
 block:	label_block
@@ -150,8 +150,12 @@ params_opt: /*empty*/
 			| DUTOK_LPAR params DUTOK_RPAR
 		;
 
-params: DUTOK_VAR ident_list DUTOK_COLON DUTOK_IDENTIFIER
-		| DUTOK_VAR ident_list DUTOK_COLON DUTOK_IDENTIFIER DUTOK_SEMICOLON params
+params: var_opt ident_list DUTOK_COLON DUTOK_IDENTIFIER
+		| var_opt ident_list DUTOK_COLON DUTOK_IDENTIFIER DUTOK_SEMICOLON params
+		;
+
+var_opt:	/*empty*/
+			| DUTOK_VAR
 		;
 
 type:	ordtype
@@ -159,12 +163,10 @@ type:	ordtype
 		| DUTOK_IDENTIFIER
 		;
 
-ordtype:	ordtype
-			| ordconst DUTOK_DOTDOT ordconst
+ordtype:	u_constant DUTOK_DOTDOT u_constant
 		;
 
-structtype:	structtype
-			| DUTOK_ARRAY LSBRA ordtype_list RSBRA DUTOK_OF type
+structtype:	DUTOK_ARRAY DUTOK_LSBRA ordtype_list DUTOK_RSBRA DUTOK_OF type
 		;
 
 ordtype_list:	ordtype
@@ -192,23 +194,26 @@ ecf:	DUTOK_GOTO DUTOK_UINT
 
 enf:	DUTOK_IF expr DUTOK_THEN cmd
 		| DUTOK_WHILE expr DUTOK_DO enf
-		| DUTOK_IF expr DUTOK_THEN ecf ELSE enf
+		| DUTOK_IF expr DUTOK_THEN ecf DUTOK_ELSE enf
 		;
 
 for:	DUTOK_FOR DUTOK_IDENTIFIER DUTOK_ASSIGN expr DUTOK_FOR_DIRECTION expr DUTOK_DO cmd
 		;
 
 func_var:	DUTOK_IDENTIFIER
-			| DUTOK_IDENTIFIER LSBRA ordtype_list RSBRA
+			| func_var DUTOK_LSBRA ordtype_list DUTOK_RSBRA
 		;
 
 concrete_params_opt:	/*empty*/
-						| expr
-						| var_list
+						| concrete_params
 		;
 
-var_list:	var
-			| var DUTOK_COMMA var_list
+concrete_params:	expr
+					| var_list
+		;
+
+var_list:	func_var
+			| func_var DUTOK_COMMA var_list
 		;
 
 
@@ -216,31 +221,34 @@ expr:	simple_expr
 		| simple_expr DUTOK_OPER_REL simple_expr
 		;
 
-simple_expr:	DUTOK_OPER_SIGNADD term
+simple_expr:	term
+				| DUTOK_OPER_SIGNADD term
 				| DUTOK_OPER_SIGNADD term DUTOK_OPER_SIGNADD term
 				| DUTOK_OPER_SIGNADD term DUTOK_OR term
 		;
 
 term:	factor
-		| faktor DUTOK_OPER_MUL factor
-		| faktor DUTOK_AND factor
+		| factor DUTOK_OPER_MUL factor
 		;
 
-factor:	u_constant
-		| var
-		| DUTOK_IDENTIFIER LPAR concrete_params LPAR
-		| LPAR expr LPAR
+factor:	u_constant_no_ident
+		| func_var
+		| DUTOK_IDENTIFIER DUTOK_LPAR concrete_params DUTOK_LPAR
+		| DUTOK_LPAR expr DUTOK_LPAR
 		| DUTOK_NOT factor
 		;
 
 u_constant:	DUTOK_IDENTIFIER
-			| DUTOK_UINT
+			| u_constant_no_ident
+		;
+
+u_constant_no_ident:	DUTOK_UINT
 			| DUTOK_REAL
 			| DUTOK_STRING
 		;
 
 
-		
+*/		
 
 %%
 

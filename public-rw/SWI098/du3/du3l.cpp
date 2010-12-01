@@ -5592,9 +5592,9 @@ static yyconst yy_state_type yy_NUL_trans[166] =
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "du3l.lex"
+#line 1 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 #define INITIAL 0
-#line 2 "du3l.lex"
+#line 2 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 	
 	#include "duerr.h"
 	#include "du3.h"
@@ -5919,7 +5919,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 184 "du3l.lex"
+#line 184 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 
 
 #line 5926 "du3l.cpp"
@@ -5995,350 +5995,350 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 186 "du3l.lex"
+#line 186 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_PLUS; return DUTOK_OPER_SIGNADD;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 187 "du3l.lex"
+#line 187 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_MINUS; return DUTOK_OPER_SIGNADD;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 189 "du3l.lex"
+#line 189 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_SOLIDUS; return DUTOK_OPER_MUL;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 190 "du3l.lex"
+#line 190 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_ASTERISK; return DUTOK_OPER_MUL;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 192 "du3l.lex"
+#line 192 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 ++line; *l = line;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 194 "du3l.lex"
+#line 194 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_DIV; return DUTOK_OPER_MUL;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 195 "du3l.lex"
+#line 195 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_MOD; return DUTOK_OPER_MUL;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 196 "du3l.lex"
+#line 196 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_AND; return DUTOK_OPER_MUL;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 198 "du3l.lex"
+#line 198 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_TO; return DUTOK_FOR_DIRECTION;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 199 "du3l.lex"
+#line 199 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_DOWNTO; return DUTOK_FOR_DIRECTION;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 201 "du3l.lex"
+#line 201 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_PROGRAM;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 202 "du3l.lex"
+#line 202 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_LABEL;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 203 "du3l.lex"
+#line 203 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_CONST;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 204 "du3l.lex"
+#line 204 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_TYPE;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 205 "du3l.lex"
+#line 205 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_VAR;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 206 "du3l.lex"
+#line 206 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_BEGIN;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 207 "du3l.lex"
+#line 207 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_END;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 208 "du3l.lex"
+#line 208 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_PROCEDURE;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 209 "du3l.lex"
+#line 209 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_FUNCTION;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 210 "du3l.lex"
+#line 210 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_ARRAY;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 211 "du3l.lex"
+#line 211 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_OF;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 212 "du3l.lex"
+#line 212 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_GOTO;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 213 "du3l.lex"
+#line 213 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_IF;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 214 "du3l.lex"
+#line 214 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_THEN;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 215 "du3l.lex"
+#line 215 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_ELSE;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 216 "du3l.lex"
+#line 216 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_WHILE;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 217 "du3l.lex"
+#line 217 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_DO;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 218 "du3l.lex"
+#line 218 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_REPEAT;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 219 "du3l.lex"
+#line 219 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_UNTIL;
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 220 "du3l.lex"
+#line 220 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_FOR;
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 221 "du3l.lex"
+#line 221 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_OR;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 222 "du3l.lex"
+#line 222 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_NOT;
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 223 "du3l.lex"
+#line 223 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_RECORD;
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 225 "du3l.lex"
+#line 225 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->id_ci_ = ls_id.add(parseIdent(yytext)); return DUTOK_IDENTIFIER;
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 226 "du3l.lex"
+#line 226 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->int_ci_ = ls_int.add(parseInt(yytext)); return DUTOK_UINT;
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 227 "du3l.lex"
+#line 227 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->real_ci_ = ls_real.add(parseReal(yytext)); return DUTOK_REAL;
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 228 "du3l.lex"
+#line 228 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->int_ci_ = ls_int.add(parseInt(yytext)); return DUTOK_UINT; /*broken int*/
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 229 "du3l.lex"
+#line 229 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->real_ci_ = ls_real.add(parseReal(yytext)); return DUTOK_REAL;
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 231 "du3l.lex"
+#line 231 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_SEMICOLON;
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 232 "du3l.lex"
+#line 232 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_DOT;
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 233 "du3l.lex"
+#line 233 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_COMMA;
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 234 "du3l.lex"
+#line 234 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_EQ;
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 235 "du3l.lex"
+#line 235 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_COLON;
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 236 "du3l.lex"
+#line 236 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_LPAR;
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 237 "du3l.lex"
+#line 237 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_RPAR;
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 238 "du3l.lex"
+#line 238 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_DOTDOT;
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 239 "du3l.lex"
+#line 239 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_LSBRA;
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 240 "du3l.lex"
+#line 240 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_RSBRA;
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 241 "du3l.lex"
+#line 241 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; return DUTOK_ASSIGN;
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 243 "du3l.lex"
+#line 243 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_LT; return DUTOK_OPER_REL;
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 244 "du3l.lex"
+#line 244 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_NE; return DUTOK_OPER_REL;
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 245 "du3l.lex"
+#line 245 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_LE; return DUTOK_OPER_REL;
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 246 "du3l.lex"
+#line 246 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_GT; return DUTOK_OPER_REL;
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 247 "du3l.lex"
+#line 247 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->dtge_ = DUTOKGE_GE; return DUTOK_OPER_REL;
 	YY_BREAK
 case YY_STATE_EOF(STR):
-#line 249 "du3l.lex"
+#line 249 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; error(DUERR_EOFINSTRCHR, line); lv->str_ci_ = ls_str.add(strval); BEGIN(INITIAL); strval = ""; return DUTOK_STRING;
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 250 "du3l.lex"
+#line 250 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; error(DUERR_EOLINSTRCHR, line); lv->str_ci_ = ls_str.add(strval); ++line; BEGIN(INITIAL); strval = ""; return DUTOK_STRING;
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 251 "du3l.lex"
+#line 251 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; strval += "'";
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 252 "du3l.lex"
+#line 252 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; lv->str_ci_ = ls_str.add(strval); BEGIN(INITIAL); strval = ""; return DUTOK_STRING;
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 253 "du3l.lex"
+#line 253 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; strval += yytext;
 	YY_BREAK
 case YY_STATE_EOF(CMT):
-#line 255 "du3l.lex"
+#line 255 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; error(DUERR_EOFINCMT, line); BEGIN(INITIAL);
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 256 "du3l.lex"
+#line 256 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 ++line; *l = line;
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 257 "du3l.lex"
+#line 257 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; ++commentLevel;
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 258 "du3l.lex"
+#line 258 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; --commentLevel; if (commentLevel == 0) { BEGIN(INITIAL); } if (commentLevel < 0) { error(mlc::DUERR_UNEXPENDCMT, line); }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 259 "du3l.lex"
+#line 259 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line;
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 261 "du3l.lex"
+#line 261 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; /* go out with whitespaces */
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 263 "du3l.lex"
+#line 263 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; BEGIN(STR); strval = "";
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 264 "du3l.lex"
+#line 264 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; BEGIN(CMT); ++commentLevel;
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 265 "du3l.lex"
+#line 265 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; error(DUERR_UNEXPENDCMT, line);
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 267 "du3l.lex"
+#line 267 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 *l = line; error(DUERR_UNKCHAR, line, yytext);
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 268 "du3l.lex"
+#line 268 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
 ECHO;
 	YY_BREAK
 #line 6345 "du3l.cpp"
@@ -7222,4 +7222,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 268 "du3l.lex"
+#line 268 "C:\\cygwin\\home\\Jirka\\mlaskal\\public-rw\\SWI098\\du3\\du3l.lex"
