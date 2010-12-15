@@ -808,7 +808,7 @@ namespace mlc {
 	}
 
 	symbol_tables::symbol_tables( bool debug, mlaskal::abstract_ic * aic)
-		: nested_( false), gvarsize( 0), myfncname_( aic->get_ls_id().end()), debug_( debug),
+		: nested_( false), gvarsize( 0), myfncname_( 0), debug_( debug),
 		aic_( aic)
 	{
 		//				undef_.idx = types.end();
@@ -1216,7 +1216,7 @@ namespace mlc {
 
 	type_symbol_reference symbol_tables::add_type( int line, ls_id_index idx, type_pointer ltype)
 	{
-		symbol_map::value_type val( idx, symbol_entry( SKIND_TYPE, 0, ltype));
+		symbol_map::value_type val( idx, symbol_entry( SKIND_TYPE, ltype));
 		std::pair< symbol_map::iterator, bool> rv;
 		if ( nested_ )
 		{
@@ -1588,7 +1588,7 @@ namespace mlc {
 	void symbol_tables::leave( int /*line*/)
 	{
 		nested_ = false;
-		myfncname_ = aic_->get_ls_id().end();
+		myfncname_ = 0;
 
 		dump_leave();
 	}
@@ -1598,7 +1598,7 @@ namespace mlc {
 		return myfncname_;
 	}
 
-	mlc::ls_int_type::const_iterator symbol_tables::one()
+	mlc::ls_int_type::const_pointer symbol_tables::one()
 	{
 		return one_;
 	}

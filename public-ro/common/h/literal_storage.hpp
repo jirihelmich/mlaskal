@@ -20,8 +20,34 @@
 
 namespace mlaskal {
 
+	template <typename T, bool ISID>
+	class cptr_lit_storage {
+	public:
+		cptr_lit_storage() : ptr_(0) { }
+		cptr_lit_storage(const T* ptr) : ptr_(ptr) { }
+		const T& operator*() const { return *ptr_; }
+		bool operator!() const { return !ptr_; }
+		const T* operator->() const { return ptr_; }
+	private:
+		const T*	ptr_;
+
+		template <typename TT, bool ISIDISID>
+		friend bool operator==(const cptr_lit_storage<TT, ISIDISID> &lhs, const cptr_lit_storage<TT, ISIDISID> &rhs);
+		template <typename TT, bool ISIDISID>
+		friend bool operator!=(const cptr_lit_storage<TT, ISIDISID> &lhs, const cptr_lit_storage<TT, ISIDISID> &rhs);
+		template <typename TT, bool ISIDISID>
+		friend bool operator!=(const TT *lhs, const cptr_lit_storage<TT, ISIDISID> &rhs);
+	};
+
+	template <typename T, bool ISID>
+	bool operator==(const cptr_lit_storage<T, ISID> &lhs, const cptr_lit_storage<T, ISID> &rhs) { return lhs.ptr_==rhs.ptr_; }
+	template <typename T, bool ISID>
+	bool operator!=(const cptr_lit_storage<T, ISID> &lhs, const cptr_lit_storage<T, ISID> &rhs) { return lhs.ptr_!=rhs.ptr_; }
+	template <typename T, bool ISID>
+	bool operator!=(const T *lhs, const cptr_lit_storage<T, ISID> &rhs) { return lhs!=rhs.ptr_; }
+
 	/// literal/identifier storage
-	template <typename T>
+	template <typename T, bool ISID>
 	class lit_storage
 	{
 	public:
@@ -32,7 +58,8 @@ namespace mlaskal {
 		typedef const T & const_reference;		///< container requirement
 		typedef typename std::list<T>::size_type size_type;		///< container requirement
 		typedef typename std::list<T>::const_iterator const_iterator;		///< container requirement
-		typedef const T * const_pointer;
+//		typedef const T * const_pointer;
+		typedef cptr_lit_storage<T, ISID> const_pointer;
 
 		size_type size() const { return lit_.size(); }		///< container requirement
 		const_iterator begin() const { return lit_.begin(); }		///< container requirement
@@ -69,23 +96,23 @@ namespace mlaskal {
 
 		/// @cond INTERNAL
 
-		const_iterator at_iter(index_type idx) const {
+		const_pointer at_iter(index_type idx) const {
 			const_iterator ci;
 			for(ci=lit_.begin();idx && ci!=lit_.end();--idx,++ci);
-			return ci;
+			return & * ci;
 		}
 
 		const_reference at(index_type idx) const {
-			const_iterator ci=at_iter(idx);
-			if(ci==lit_.end())
+			const_pointer ci=at_iter(idx);
+			if(!ci)
 				throw std::out_of_range("Indexing into a literal storage");
 			return *ci;
 		}
 
-		index_type compute_index(const_iterator cr) const {
+		index_type compute_index(const_pointer cr) const {
 			index_type idx=0;
 			const_iterator ci;
-			for(ci=lit_.begin();ci!=cr && ci!=lit_.end();++ci,++idx);
+			for(ci=lit_.begin();&*ci!=cr && ci!=lit_.end();++ci,++idx);
 			if(ci==lit_.end())
 				throw std::out_of_range("Computing index into a literal storage");
 			return idx;

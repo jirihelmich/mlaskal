@@ -27,13 +27,13 @@ namespace mlc {
 	// literal storages
 
 	/// integer literal storage type
-	typedef mlaskal::lit_storage<int> ls_int_type;
+	typedef mlaskal::lit_storage<int, false> ls_int_type;
 	/// real literal storage type
-	typedef mlaskal::lit_storage<double> ls_real_type;
+	typedef mlaskal::lit_storage<double, false> ls_real_type;
 	/// string literal storage type
-	typedef mlaskal::lit_storage<std::string> ls_str_type;
+	typedef mlaskal::lit_storage<std::string, false> ls_str_type;
 	/// identifier storage type
-	typedef mlaskal::lit_storage<std::string> ls_id_type;
+	typedef mlaskal::lit_storage<std::string, true> ls_id_type;
 /*
 	/// integer literal storage
 	extern ls_int_type ls_int;
@@ -51,13 +51,13 @@ namespace mlc {
 	typedef mlaskal::ICRELNUM stack_address;
 
 	/// integer literal index
-	typedef ls_int_type::const_iterator ls_int_index;
+	typedef ls_int_type::const_pointer ls_int_index;
 	/// real literal index
-	typedef ls_real_type::const_iterator ls_real_index;
+	typedef ls_real_type::const_pointer ls_real_index;
 	/// string literal index
-	typedef ls_str_type::const_iterator ls_str_index;
+	typedef ls_str_type::const_pointer ls_str_index;
 	/// identifier index
-	typedef ls_id_type::const_iterator ls_id_index;
+	typedef ls_id_type::const_pointer ls_id_index;
 
 	/*************************************************************************/
 
@@ -287,19 +287,19 @@ namespace mlc {
 	class field_list;
 
 	/// \internal ordering functor on literal table indexes
-	template< typename T>
+	template< typename T, bool ISID>
 	class ls_index_comparator {
 	public:
 		bool operator() ( 
-			typename mlaskal::lit_storage< T>::const_iterator a, 
-			typename mlaskal::lit_storage< T>::const_iterator b) const
+			typename mlaskal::lit_storage< T, ISID>::const_pointer a, 
+			typename mlaskal::lit_storage< T, ISID>::const_pointer b) const
 		{
 			return * a < * b;
 		}
 	};
 
 	/// \internal record field index
-	typedef std::map< ls_id_index, const field_entry *, ls_index_comparator< std::string> > record_cache_type;
+	typedef std::map< ls_id_index, const field_entry *, ls_index_comparator< std::string, true> > record_cache_type;
 
 	/// \internal implementation of a type entry
 	class type_entry :
@@ -755,9 +755,9 @@ namespace mlc {
 	class label_entry;
 
 	/// \internal symbol map
-	typedef std::map< ls_id_index, symbol_entry, ls_index_comparator< std::string> > symbol_map;
+	typedef std::map< ls_id_index, symbol_entry, ls_index_comparator< std::string, true> > symbol_map;
 	/// \internal label map
-	typedef std::map< ls_int_index, label_entry, ls_index_comparator< int> > label_map;
+	typedef std::map< ls_int_index, label_entry, ls_index_comparator< int, false> > label_map;
 
 	/// \internal implementation of a symbol
 	class symbol_entry
@@ -780,6 +780,10 @@ namespace mlc {
 		symbol_entry( symbol_kind s, stack_address i, type_pointer p, ic_label bl, ic_label el)
 			: symtype( s), value( false), relnum_( i), ltype( p), parlist( 0), magic(), epilogue_( 0), local_tables_( 0),
 			icip_begin_label( bl), icip_end_label( el)
+		{
+		}
+		symbol_entry( symbol_kind s, type_pointer p)
+			: symtype( s), value( false), relnum_( -1), ltype( p), parlist( 0), magic(), epilogue_( 0), local_tables_( 0)
 		{
 		}
 		symbol_entry( symbol_kind s, bool i, type_pointer p)
@@ -1050,7 +1054,7 @@ namespace mlc {
 		/// integer literal 1
 		/** returns the integer literal '1'
 		**/
-		mlc::ls_int_type::const_iterator one();
+		mlc::ls_int_type::const_pointer one();
 
 		/// place for the returned value
 		/** returns the stack offset of the returned value
@@ -1115,7 +1119,7 @@ namespace mlc {
 		bool nested_;
 		stack_address gvarsize;
 		ls_id_index myfncname_;
-		mlc::ls_int_type::const_iterator one_;
+		mlc::ls_int_type::const_pointer one_;
 		type_pointer bool_;
 		type_pointer integer_;
 		type_pointer real_;
