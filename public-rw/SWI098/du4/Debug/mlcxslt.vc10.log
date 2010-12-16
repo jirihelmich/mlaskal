@@ -1,4 +1,4 @@
-﻿Build started 15.12.2010 14:06:55.
+﻿Build started 16.12.2010 2:50:14.
      1>Project "C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du4\mlcxslt.vc10.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\mlcxslt.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.12
+Time Elapsed 00:00:00.04
