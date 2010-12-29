@@ -1,0 +1,19 @@
+﻿Build started 29.12.2010 20:38:16.
+     1>Project "C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du5\mlc.vc10.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\mlc.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I"..\..\..\public-ro\common\h" /I"..\..\..\public-ro\mlc\h" /I"..\..\..\public-ro\mlc\du5\h" /Zi /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _CRT_SECURE_NO_DEPRECATE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt du5g.cpp
+         du5g.cpp
+     1>du5g.cpp(1284): warning C4065: switch statement contains 'default' but no 'case' labels
+     1>du5g.cpp(1436): warning C4244: '=' : conversion from 'int' to 'yytype_int16', possible loss of data
+     1>du5g.cpp(1603): warning C4127: conditional expression is constant
+     1>C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du5\du5g.y(329): error C3861: 'callfunc': identifier not found
+     1>du5g.cpp(2286): warning C4127: conditional expression is constant
+     1>du5g.cpp(2336): warning C4127: conditional expression is constant
+     1>du5g.cpp(2336): warning C4127: conditional expression is constant
+     1>Done Building Project "C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du5\mlc.vc10.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.65

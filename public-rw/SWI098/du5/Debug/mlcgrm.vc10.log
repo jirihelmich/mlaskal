@@ -1,0 +1,14 @@
+﻿Build started 29.12.2010 20:38:16.
+     1>Project "C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du5\mlcgrm.vc10.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\mlcgrm.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Bison
+       FinalizeBuildStatus:
+         Deleting file "Debug\mlcgrm.unsuccessfulbuild".
+         Touching "Debug\mlcgrm.lastbuildstate".
+     1>Done Building Project "C:\cygwin\home\Jirka\mlaskal\public-rw\SWI098\du5\mlcgrm.vc10.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.33
